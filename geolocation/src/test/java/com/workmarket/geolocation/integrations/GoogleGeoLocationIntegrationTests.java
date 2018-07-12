@@ -33,22 +33,6 @@ public class GoogleGeoLocationIntegrationTests {
         target = new GoogleGeoLocationIntegration(propertiesLoader, httpRequestWrapper);
     }
 
-
-    //todo: fix this test
-//    @Test
-//    public void getGeoLocation_emptyStringPrividedAsParam_returnsException() throws Exception {
-//        // Arrange
-//        when(httpRequestWrapper.get(any())).thenReturn("");
-//
-//        // Act
-//        GoogleGeoCodingResponse response = target.getGeoLocation("");
-//
-//        // Assert
-//        Geometry geometry = response.getResult()[0].geometry;
-//        Assert.assertEquals(42.0963, geometry.location.lat, 0.00001);
-//        Assert.assertEquals(-70.96849999999999, geometry.location.lng, 0.00001);
-//    }
-
     @Test
     public void getGeoLocation_addressProvided_returnsCoordinateInGoogleGeoCodingResponse() throws Exception {
         // Arrange
