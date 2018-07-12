@@ -1,0 +1,15 @@
+1) The google api response does not fully serialize into the object because
+their json response returns snake cased field names and our java classes use the correct java convention (which is camel case).
+It is surprising that google uses snake case for their field names, because it breaks their code standard for json:
+https://google.github.io/styleguide/jsoncstyleguide.xml?showone=Property_Name_Format#Property_Name_Format
+
+Since the fully qualified fields that we need (status, location.lat, location.lon) are comprised of single words,
+I was able to avoid using Gson TypeAdapters to map the json to java classes.
+
+2) To run:
+ a) create a shaded jar using gradle task "gradle shadowJar".
+ b) After which, the jar can be run as follows.
+ java -jar geolocation-all.jar
+ The arguments are: [file path] [SourceName] [SinkName]
+ For example, java -jar geolocation-all.jar addresses.txt FileSource StandardOutputJsonSink > result.txt
+
