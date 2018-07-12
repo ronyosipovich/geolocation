@@ -2,6 +2,7 @@ package com.workmarket.geolocation.app;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.workmarket.geolocation.domain.GeoLocationResult;
 import com.workmarket.geolocation.guice.GeoLocatorModule;
 import com.workmarket.geolocation.sinks.JsonArraySink;
 import com.workmarket.geolocation.sinks.Sink;
@@ -26,8 +27,8 @@ public class GeoLocationConsoleApp {
         String sourceName = args[1];
         String sinkName = args[2];
 
-        Source source = null;
-        Sink sink = null;
+        Source<String> source = null;
+        Sink<GeoLocationResult> sink = null;
 
         // Since the source and sink exist in specific packages in this project,
         // I could have technically used reflection here to get the classes from the arguments provided.
