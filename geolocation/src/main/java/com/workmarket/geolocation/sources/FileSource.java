@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
-public class FileSource implements Source {
+public class FileSource implements Source<String> {
 
     private final Iterator<String> iterator;
 
@@ -22,7 +22,7 @@ public class FileSource implements Source {
     }
 
     @Override
-    public Object getNext() {
+    public String getNext() {
         return iterator.next();
     }
 }
